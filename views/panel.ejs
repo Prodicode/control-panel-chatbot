@@ -1,0 +1,27 @@
+<center><h2>Chatbot Control Panel</h2></center>
+<br>
+<br>
+<center>
+<h3>Add New Command</h3>
+<br>
+<form action="/new-command" method="post">
+ Command: <input type="text" name="command"><br>
+ Response: <input type="text" name="response"><br>
+ <input type="submit" value="Add Command">
+</form>
+<br>
+<br>
+<br>
+<h3>Commands</h3><br><hr>
+<% for (var i = 0;i<commands.length;i++) { %>
+<!-- start command object -->
+<span>Command: <%= commands[i].command %></span><br>
+<span>Response: <%= commands[i].response %></span><br>
+<form action="/remove-command" method="post">
+<input type="text" name="command" value="<%= commands[i].command %>" hidden="true"><br>
+ <input type="submit" value="Remove Command">
+</form>
+<hr>
+<!-- end command object -->
+<% } %>
+</center>
